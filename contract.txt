@@ -1,0 +1,39 @@
+LOAN AGREEMENT
+
+This Loan Agreement ("Agreement") is entered into on this 15th day of February, 2024, by and between:
+
+Lender: Jane Doe, with a mailing address of 123 Capital Street, Finance City, Money State, 45678 ("Lender"),
+
+-and-
+
+Borrower: John Smith, with a mailing address of 789 Startup Lane, Entrepreneur Town, Visionary State, 98765 ("Borrower").
+
+WHEREAS, the Lender agrees to loan Twenty One Thousand Dollars ($21,000), (the "Loan"), to the Borrower, and the Borrower agrees to repay this principal amount to the Lender, with interest, under the terms and conditions specified herein.
+
+1. LOAN AMOUNT AND INTEREST
+The Lender promises to loan Twenty One Thousand Dollars ($21,000) USD to the Borrower, and the Borrower promises to repay this principal amount to the Lender, with an annual interest rate of 5%, compounded annually, on the unpaid principal balance.
+
+2. REPAYMENT TERMS
+The Loan will be repaid in 24 Monthly payments of $877.42 USD each, starting on March 15, 2024, and ending on February 15, 2026.
+
+3. PREPAYMENT
+The Borrower may prepay the Loan, in whole or in part, prior to the final due date, with no prepayment penalty.
+
+4. LATE FEES
+If any payment is more than 10 days late, the Borrower agrees to pay a late fee of $25 USD.
+
+5. DEFAULT AND ACCELERATION
+If the Borrower fails to make any payment when due, the Lender may declare the remaining unpaid loan balance and any accrued interest immediately due and payable.
+
+6. GOVERNING LAW
+This Agreement shall be governed by and construed in accordance with the laws of the State of Visionary State, excluding its conflict of law principles.
+
+7. ENTIRE AGREEMENT
+This document constitutes the entire agreement between the parties and supersedes any prior understanding or representation of any kind preceding the date of this Agreement.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first above written.
+
+Lender's Signature: __________________________    Date: February 15, 2024
+
+Borrower's Signature: __________________________    Date: February 15, 2024
+

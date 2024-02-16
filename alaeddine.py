@@ -1,5 +1,4 @@
 import dotenv
-import requests
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
@@ -11,59 +10,41 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 
-
-
-
+# Load environment variables
 dotenv.load_dotenv()
-#downloading the document from the internet
-url = "https://raw.githubusercontent.com/langchain-ai/langchain/master/docs/docs/modules/state_of_the_union.txt"
-res = requests.get(url)
-with open("state_of_the_union.txt", "w") as f:
-    f.write(res.text)
 
-#loading the document from the file
-loader = TextLoader('./state_of_the_union.txt')
+# Assuming your local document is named "document.txt" and is located in the current directory
+local_document_path = './long_document.txt'
+
+# Loading the document from the file
+loader = TextLoader(local_document_path)
 documents = loader.load()
 
-#splitting the document into chunks
+# Splitting the document into chunks
 text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 chunks = text_splitter.split_documents(documents)
 
-#embedding the chunks
-client = weaviate.Client(
-  embedded_options = EmbeddedOptions()
-)
+# Embedding the chunks
+client = weaviate.Client(embedded_options=EmbeddedOptions())
+vectorstore = Weaviate.from_documents(client=client, documents=chunks, embedding=OpenAIEmbeddings(), by_text=False)
 
-vectorstore = Weaviate.from_documents(
-    client = client,    
-    documents = chunks,
-    embedding = OpenAIEmbeddings(),
-    by_text = False
-)
-
-#retrieving the chunks
+# Retrieving the chunks
 retriever = vectorstore.as_retriever()
 
-
-#prompt
-template = """You are an assistant for question-answering tasks. 
+# Prompt
+template = """You are an assistant for documentation tasks. 
 Use the following pieces of retrieved context to answer the question. 
-If you don't know the answer, just say that you don't know. 
-Use three sentences maximum and keep the answer concise.
+generate only the yaml documentation only to be stocked in the yaml extention.
 Question: {question} 
 Context: {context} 
 Answer:
 """
 prompt = ChatPromptTemplate.from_template(template)
 
-print(prompt)
-
-
-#chat model
+# Chat model
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-
-#output parser
+# Output parser
 rag_chain = (
     {"context": retriever,  "question": RunnablePassthrough()} 
     | prompt 
@@ -71,9 +52,8 @@ rag_chain = (
     | StrOutputParser() 
 )
 
-#invoke the chain
-query = "What did the president say about Justice Breyer"
+# Invoke the chain
+query = "Generate a Swagger API description"
 answer = rag_chain.invoke(query)
-print(answer)
-
+print(answer)  # This will print the answer
 
