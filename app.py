@@ -73,6 +73,7 @@ rag_chain = (
 
 #invoke the chain
 query = "What did the president say about Justice Breyer"
-rag_chain.invoke(query)
+answer = rag_chain.invoke(query)
+print(answer)  # Add this to print the answer
 
 
